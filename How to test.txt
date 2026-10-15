@@ -1,4 +1,4 @@
-ArcScan 0.8.0 - loot marking overlay (test build)
+ArcScan 0.8.1 - loot marking overlay (test build)
 
 What it does
 - Detects an open container or your stash in ARC Raiders on GeForce NOW, without a key press.
@@ -13,7 +13,7 @@ What it does
     later workshop levels, projects, extra items. The tag names the first reason not yet covered.
   - In your stash, backpack and quick use, a reserved item you own enough of shows "ok" (e.g. QUEST ok):
     keep it. In containers it is no longer marked for the reserve once you own enough.
-  - Green ALWAYS: on your "Always pick up" list (only shown once no reserve is open for the item).
+  - Pink ALWAYS: on your "Always pick up" list (only shown once no reserve is open for the item).
   - Gold VALUE: not needed, but its sell value per kg is at or above your threshold.
   - Grey frame, no tag: not worth taking by these rules.
   - All frames are the same thin line just inside the slot border, so the stack count of the slot stays visible.
@@ -26,7 +26,7 @@ What it does
 What to check in this version
 - Markings now show how many you still need. Open the settings page (F9): the Reserve list shows own, keep and
   still need per item. Compare a few with the markings in a container and in the stash.
-- Add an item under "Always pick up" and check it gets an ALWAYS marking (when no reserve is open for it).
+- Add an item under "Always pick up" and check it gets a pink ALWAYS marking (when no reserve is open for it).
 - Sort the stash by name, then scroll through it once from top to bottom. Compare a few "own n" values in the
   console with what you have (stash plus backpack and quick use). Split, move or sell a stack and check again.
 - Switch between stash tabs: a "?" caused by the category name popping up over a slot should disappear about
