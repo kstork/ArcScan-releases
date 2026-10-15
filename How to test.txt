@@ -1,4 +1,4 @@
-ArcScan 0.8.7 - loot marking overlay (test build)
+ArcScan 0.8.8 - loot marking overlay (test build)
 
 What it does
 - Detects an open container or your stash in ARC Raiders on GeForce NOW, without a key press.
@@ -29,27 +29,11 @@ What it does
 - The overlay is click-through and never takes focus; the game keeps all mouse and keyboard input.
 
 What to check in this version
-- Recipe data (for the coming recycling and crafting feature): the first start downloads it once (about 600 small
-  files, up to a minute). The window then shows "Recipe data ready: ... craftable, ... recyclable, ...
-  salvageable items". Please send the log of that first start. Nothing changes in the markings yet.
-- "Extra items you need" is now "Keep in stock" (tag STOCK). Your entries should still be there.
-- In your stash, items worth selling show VALUE n: compare n with what you own minus what you need (F9 Reserve
-  list: own minus keep).
-- Markings should come back faster after scrolling, switching tabs or moving items (the screen is checked twice
-  as often while it settles, and slots are read on all processor cores).
-- An "Always pick up" item you own enough of shows pink ALWAYS, also in the stash (instead of e.g. QUEST ok).
-- Rosary (and other items that match their icon clearly but not perfectly) should no longer show "?".
-- Less flicker: slots with faint borders (blurry stream frames) are found again, blurry counts are read, a stack
-  count change no longer lifts the marking, and an item that stays "?" is only read again when the slot changed.
-- Scroll through the stash: owned totals ("own n" in the console, F9 Reserve list) should no longer drop to 0
-  and come back.
-- Markings now show how many you still need. Open the settings page (F9): the Reserve list shows own, keep and
-  still need per item. Compare a few with the markings in a container and in the stash.
-- Add an item under "Always pick up" and check it gets a pink ALWAYS marking (when no reserve is open for it).
-- Sort the stash by name, then scroll through it once from top to bottom. Compare a few "own n" values in the
-  console with what you have (stash plus backpack and quick use). Split, move or sell a stack and check again.
-- Switch between stash tabs: a "?" caused by the category name popping up over a slot should disappear about
-  a second after the popup.
+- Add a craftable item under "Keep in stock" (for example 100 Light Ammo) while you have fewer than that. Its
+  recipe materials (Chemicals, Metal Parts) and the best items that break down into them get STOCK markings.
+  The Reserve list on the settings page (F9) shows why ("crafting 100 Light Ammo", "source of Metal Parts
+  (10 each) for Light Ammo").
+- Try the options under "Sources for stock items" and check that the Reserve list and the markings follow.
 - If something is wrong, press F8 while it is on screen and send the files from the "captures" folder together
   with the log file.
 
@@ -74,6 +58,13 @@ Settings (F9)
 - Reserve: the combined amount per item and where it comes from.
 - Keep in stock: how many of an item you always want to have, on top of the reserve (reserve 50 + stock 30 =
   keep 80). Entries from "Extra items you need" in older versions carry over.
+- Recycling and crafting: while you are short of a stock item, items that break down into it are marked too
+  (items you own count first, at their yield). For a craftable stock item, what is still missing is crafted:
+  its recipe materials are marked, and items that break down into those. Nothing deeper than that, and
+  nothing more once you have enough.
+- Sources for stock items: limits for the items marked as sources, combinable: no weapons, modifications,
+  augments or shields (on by default); only sources that sell for less than the material they give; a minimum
+  yield per item; only the best N sources per material by yield (on, N = 5, by default; applied last).
 - Always pick up: items that are always marked, without an amount.
 - Value threshold: value per kg, default 2000.
 - Changes are saved to settings.json next to ArcScan.exe and apply in the game immediately.
