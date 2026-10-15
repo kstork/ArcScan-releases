@@ -1,15 +1,20 @@
-ArcScan 0.7.0 - loot marking overlay (test build)
+ArcScan 0.8.0 - loot marking overlay (test build)
 
 What it does
 - Detects an open container or your stash in ARC Raiders on GeForce NOW, without a key press.
 - Marks every item slot with a frame colour and a short tag:
-  - Cyan ACTIVE n: required by a quest you set to Active.
-  - Green QUEST n: required by a quest that is not marked Done.
-  - Green PROJ n: required by an open phase of a counted project.
-  - Green BENCH n: required by a workshop level above your current level.
+  - Cyan ACTIVE n: needed for a quest you set to Active.
+  - Green BENCH n: needed for the next level of a workshop station.
+  - Green QUEST n: needed for an open quest (or BENCH n: a later workshop level).
+  - Green PROJ n: needed for an open phase of a counted project.
   - Green NEED n: on your list of extra items.
-  - n = total amount to keep: quests not done + open project phases + workshop levels above your current level + extra items.
-  - Gold VALUE: not reserved, but its sell value per kg is at or above your threshold.
+  - n = how many you still need: everything reserved minus what you own (see "Owned items").
+  - What you own covers the reasons in this order: active quests, next workshop level, other quests and
+    later workshop levels, projects, extra items. The tag names the first reason not yet covered.
+  - In your stash, backpack and quick use, a reserved item you own enough of shows "ok" (e.g. QUEST ok):
+    keep it. In containers it is no longer marked for the reserve once you own enough.
+  - Green ALWAYS: on your "Always pick up" list (only shown once no reserve is open for the item).
+  - Gold VALUE: not needed, but its sell value per kg is at or above your threshold.
   - Grey frame, no tag: not worth taking by these rules.
   - All frames are the same thin line just inside the slot border, so the stack count of the slot stays visible.
   - Orange "?": the item could not be identified with confidence.
@@ -19,6 +24,9 @@ What it does
 - The overlay is click-through and never takes focus; the game keeps all mouse and keyboard input.
 
 What to check in this version
+- Markings now show how many you still need. Open the settings page (F9): the Reserve list shows own, keep and
+  still need per item. Compare a few with the markings in a container and in the stash.
+- Add an item under "Always pick up" and check it gets an ALWAYS marking (when no reserve is open for it).
 - Sort the stash by name, then scroll through it once from top to bottom. Compare a few "own n" values in the
   console with what you have (stash plus backpack and quick use). Split, move or sell a stack and check again.
 - Switch between stash tabs: a "?" caused by the category name popping up over a slot should disappear about
@@ -38,7 +46,6 @@ Owned items
 - Totals are saved in owned.json next to ArcScan.exe, so they are known during a raid, where the
   stash cannot be seen. In a raid, backpack and quick use are taken from the container screen.
 - Equipment (augment, shield, weapons in the loadout) is not counted.
-- Markings do not use the totals yet (next version).
 
 Settings (F9)
 - F9 opens the settings page in your web browser. It runs on this computer only.
@@ -47,6 +54,7 @@ Settings (F9)
 - Workshop: choose each station's current level. All higher levels are kept in reserve.
 - Reserve: the combined amount per item and where it comes from.
 - Extra items you need: amounts here are added on top of the reserve (reserve 50 + extra 30 = keep 80).
+- Always pick up: items that are always marked, without an amount.
 - Value threshold: value per kg, default 2000.
 - Changes are saved to settings.json next to ArcScan.exe and apply in the game immediately.
 
