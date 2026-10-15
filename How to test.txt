@@ -1,16 +1,17 @@
-ArcScan 0.6.3 - loot marking overlay (test build)
+ArcScan 0.6.4 - loot marking overlay (test build)
 
 What it does
 - Detects an open container or your stash in ARC Raiders on GeForce NOW, without a key press.
 - Marks every item slot with a frame colour and a short tag:
-  - Cyan ACTIVE n: required by a quest you set to Active (thicker frame).
+  - Cyan ACTIVE n: required by a quest you set to Active.
   - Green QUEST n: required by a quest that is not marked Done.
   - Green PROJ n: required by an open phase of a counted project.
   - Green BENCH n: required by a workshop level above your current level.
   - Green NEED n: on your list of extra items.
   - n = total amount to keep: quests not done + open project phases + workshop levels above your current level + extra items.
   - Gold VALUE: not reserved, but its sell value per kg is at or above your threshold.
-  - Thin grey frame, no tag: not worth taking by these rules.
+  - Grey frame, no tag: not worth taking by these rules.
+  - All frames are the same thin line just inside the slot border, so the stack count of the slot stays visible.
   - Orange "?": the item could not be identified with confidence.
 - Reads the stack count of every slot (x5, x100) and shows it in the item list in the console window and the log.
   A count it cannot read clearly is shown as "x?". Weapons and gear show no count.
@@ -18,7 +19,7 @@ What it does
 - The overlay is click-through and never takes focus; the game keeps all mouse and keyboard input.
 
 What to check in this version
-- The marking frame no longer covers the stack count of the slot: its bottom and right edges are thinner and sit just inside the slot border.
+- The marking frame no longer covers the stack count of the slot.
 - Markings on unchanged stacks should no longer flicker. In the log, "stack count of ... changed" should only appear when a stack really changed.
 - Open your stash and a few containers. In the console window, compare the count after each item name (x5, x56, ...) with the number on the slot.
 - Change a stack while the stash is open (split, move or merge items): the listed count should follow within a second.
