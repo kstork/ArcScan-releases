@@ -1,0 +1,60 @@
+ArcScan 0.5.1 - loot marking overlay (test build)
+
+What it does
+- Detects an open container or your stash in ARC Raiders on GeForce NOW, without a key press.
+- Marks every item slot with a frame colour and a short tag:
+  - Cyan ACTIVE n: required by a quest you set to Active (thicker frame).
+  - Green QUEST n: required by a quest that is not marked Done.
+  - Green PROJ n: required by an open phase of a counted project.
+  - Green BENCH n: required by a workshop level above your current level.
+  - Green NEED n: on your list of extra items.
+  - n = total amount to keep: quests not done + open project phases + workshop levels above your current level + extra items.
+  - Gold VALUE: not reserved, but its sell value per kg is at or above your threshold.
+  - Thin grey frame, no tag: not worth taking by these rules.
+  - Orange "?": the item could not be identified with confidence.
+- Markings disappear when the container closes or another window becomes active.
+- The overlay is click-through and never takes focus; the game keeps all mouse and keyboard input.
+
+Settings (F9)
+- F9 opens the settings page in your web browser. It runs on this computer only.
+- Quests: every quest starts as Open and its required items are kept in reserve. Set finished quests to Done to release their items. Set the quests you are working on to Active to highlight their items in cyan. "Set all shown quests to" applies Open or Done to every quest in the current list (use the search box to narrow it, e.g. by trader).
+- Projects: ticked projects keep all their open phases in reserve. Choose how many phases you have completed. Projects past their end date start unticked.
+- Workshop: choose each station's current level. All higher levels are kept in reserve.
+- Reserve: the combined amount per item and where it comes from.
+- Extra items you need: amounts here are added on top of the reserve (reserve 50 + extra 30 = keep 80).
+- Value threshold: value per kg, default 2000.
+- Changes are saved to settings.json next to ArcScan.exe and apply in the game immediately.
+
+Data sources
+- Items, icons and quests: MetaForge (metaforge.app/arc-raiders).
+- Projects and workshop levels: ARC Data Project, MIT licence (github.com/RaidTheory/arcraiders-data), the data behind arctracker.io.
+- Both are cached in %LOCALAPPDATA%\ArcScan and refreshed once per day. A project that is not in the ARC Data Project yet does not appear; add its items under Extra items.
+
+Updates
+- At every start ArcScan checks github.com/kstork/ArcScan-releases for a newer version (file latest.json).
+- If there is one, it downloads it, checks its SHA-256 checksum, replaces ArcScan.exe and this guide, and restarts itself in a new window. settings.json, logs and captures stay as they are.
+- If the check or download fails, the current version keeps running.
+- Updates are skipped when screenshots are dragged onto the exe.
+- Keep ArcScan.exe in a folder you can write to (for example a folder in Documents), not in Program Files.
+
+Requirements
+- Windows 10 or 11, 64-bit.
+- Game at 1920x1080. Any monitor works: the monitor of the active window is used.
+- Internet on first start (about 30 seconds of downloads).
+
+Windows SmartScreen
+- The exe is not signed. Windows may show "Windows protected your PC". Click "More info", then "Run anyway".
+
+Keys
+- F8: read the current screen manually and save a screenshot plus an annotated copy in the "captures" folder.
+- F9: open the settings page.
+- While ArcScan runs, the game does not receive F8 and F9.
+
+Log file
+- Everything shown in the console window is also written to the "logs" folder next to ArcScan.exe (one file per day), plus every change of the markings and its reason (lines with DEBUG).
+
+Known limits
+- 1920x1080 only.
+- Automatic detection: containers and the stash at any scroll position. Slots cut off at the top or bottom edge of the stash list are not marked.
+- The slot under the mouse cursor is not read; a new slot there is read once the cursor moves away.
+- Stack counts (x5 etc.) are not read yet: the marking shows how many to keep in total, but the tool does not yet stop marking once you own that many.
