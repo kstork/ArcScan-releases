@@ -1,4 +1,4 @@
-ArcScan 0.8.4 - loot marking overlay (test build)
+ArcScan 0.8.5 - loot marking overlay (test build)
 
 What it does
 - Detects an open container or your stash in ARC Raiders on GeForce NOW, without a key press.
@@ -26,6 +26,8 @@ What it does
 - The overlay is click-through and never takes focus; the game keeps all mouse and keyboard input.
 
 What to check in this version
+- Markings should come back faster after scrolling, switching tabs or moving items (the screen is checked twice
+  as often while it settles, and slots are read on all processor cores).
 - An "Always pick up" item you own enough of shows pink ALWAYS, also in the stash (instead of e.g. QUEST ok).
 - Rosary (and other items that match their icon clearly but not perfectly) should no longer show "?".
 - Less flicker: slots with faint borders (blurry stream frames) are found again, blurry counts are read, a stack
