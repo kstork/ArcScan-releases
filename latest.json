@@ -1,6 +1,6 @@
 {
-  "version": "0.8.5",
+  "version": "0.8.6",
   "exe": "ArcScan.exe",
-  "sha256": "19fe0cb13b4fe6cfd419a173e2bdc7fe7dfd56cba5a8fc35812de08cfe0f0f4c",
+  "sha256": "e6880beca47450c7e6ca080f423d4e5b7929eee2c1dcaaab209a0d1c4004baed",
   "guide": "How to test.txt"
 }

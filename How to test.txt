@@ -1,4 +1,4 @@
-ArcScan 0.8.5 - loot marking overlay (test build)
+ArcScan 0.8.6 - loot marking overlay (test build)
 
 What it does
 - Detects an open container or your stash in ARC Raiders on GeForce NOW, without a key press.
@@ -7,16 +7,19 @@ What it does
   - Green BENCH n: needed for the next level of a workshop station.
   - Green QUEST n: needed for an open quest (or BENCH n: a later workshop level).
   - Green PROJ n: needed for an open phase of a counted project.
-  - Green NEED n: on your list of extra items.
+  - Green STOCK n: on your "Keep in stock" list.
   - n = how many you still need: everything reserved minus what you own (see "Owned items").
   - What you own covers the reasons in this order: active quests, next workshop level, other quests and
-    later workshop levels, projects, extra items. The tag names the first reason not yet covered.
+    later workshop levels, projects, keep in stock. The tag names the first reason not yet covered.
   - In your stash, backpack and quick use, a reserved item you own enough of shows "ok" (e.g. QUEST ok):
     keep it. In containers it is no longer marked for the reserve once you own enough.
   - Pink ALWAYS: on your "Always pick up" list. While a reserve for the item is still open, the reserve marking
     with its number is shown instead; once you own enough, ALWAYS is shown everywhere (also in your stash), until
     your supply drops below the reserve again.
   - Gold VALUE: not needed, but its sell value per kg is at or above your threshold.
+  - In your stash, backpack and quick use, VALUE n says how many of that item you can sell and still keep
+    everything reserved (n is for the item in total, shown on each of its stacks). It is only reliable once
+    ArcScan has seen all stacks of the item (scroll through the stash sorted by name).
   - Grey frame, no tag: not worth taking by these rules.
   - All frames are the same thin line just inside the slot border, so the stack count of the slot stays visible.
   - Orange "?": the item could not be identified with confidence.
@@ -26,6 +29,9 @@ What it does
 - The overlay is click-through and never takes focus; the game keeps all mouse and keyboard input.
 
 What to check in this version
+- "Extra items you need" is now "Keep in stock" (tag STOCK). Your entries should still be there.
+- In your stash, items worth selling show VALUE n: compare n with what you own minus what you need (F9 Reserve
+  list: own minus keep).
 - Markings should come back faster after scrolling, switching tabs or moving items (the screen is checked twice
   as often while it settles, and slots are read on all processor cores).
 - An "Always pick up" item you own enough of shows pink ALWAYS, also in the stash (instead of e.g. QUEST ok).
@@ -63,7 +69,8 @@ Settings (F9)
 - Projects: ticked projects keep all their open phases in reserve. Choose how many phases you have completed. Projects past their end date start unticked.
 - Workshop: choose each station's current level. All higher levels are kept in reserve.
 - Reserve: the combined amount per item and where it comes from.
-- Extra items you need: amounts here are added on top of the reserve (reserve 50 + extra 30 = keep 80).
+- Keep in stock: how many of an item you always want to have, on top of the reserve (reserve 50 + stock 30 =
+  keep 80). Entries from "Extra items you need" in older versions carry over.
 - Always pick up: items that are always marked, without an amount.
 - Value threshold: value per kg, default 2000.
 - Changes are saved to settings.json next to ArcScan.exe and apply in the game immediately.
@@ -71,7 +78,7 @@ Settings (F9)
 Data sources
 - Items, icons and quests: MetaForge (metaforge.app/arc-raiders).
 - Projects and workshop levels: ARC Data Project, MIT licence (github.com/RaidTheory/arcraiders-data), the data behind arctracker.io.
-- Both are cached in %LOCALAPPDATA%\ArcScan and refreshed once per day. A project that is not in the ARC Data Project yet does not appear; add its items under Extra items.
+- Both are cached in %LOCALAPPDATA%\ArcScan and refreshed once per day. A project that is not in the ARC Data Project yet does not appear; add its items under Keep in stock.
 
 Updates
 - At every start ArcScan checks github.com/kstork/ArcScan-releases for a newer version (file latest.json).
