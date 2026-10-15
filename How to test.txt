@@ -1,4 +1,4 @@
-ArcScan 0.6.6 - loot marking overlay (test build)
+ArcScan 0.7.0 - loot marking overlay (test build)
 
 What it does
 - Detects an open container or your stash in ARC Raiders on GeForce NOW, without a key press.
@@ -19,15 +19,26 @@ What it does
 - The overlay is click-through and never takes focus; the game keeps all mouse and keyboard input.
 
 What to check in this version
-- The marking frame no longer covers the stack count of the slot.
-- At start, after the first markings appear, the window should say "Self-check: markings show up in ArcScan's own screen reads".
-- Switch between stash tabs and move a few items: no slot should end up with a wrong name or a "?" that stays.
-  A "?" caused by the category name popping up over a slot should disappear about a second after the popup.
-- Markings on unchanged stacks should no longer flicker. In the log, "stack count of ... changed" should only appear when a stack really changed.
-- Open your stash and a few containers. In the console window, compare the count after each item name (x5, x56, ...) with the number on the slot.
-- Change a stack while the stash is open (split, move or merge items): the listed count should follow within a second.
-- Stacks with a 9 (x9, x19, x90) are read from one screenshot so far: please check a few of them.
-- If a count is wrong or shows "x?", press F8 while it is on screen and send the files from the "captures" folder together with the log file.
+- Sort the stash by name, then scroll through it once from top to bottom. Compare a few "own n" values in the
+  console with what you have (stash plus backpack and quick use). Split, move or sell a stack and check again.
+- Switch between stash tabs: a "?" caused by the category name popping up over a slot should disappear about
+  a second after the popup.
+- If something is wrong, press F8 while it is on screen and send the files from the "captures" folder together
+  with the log file.
+
+Owned items
+- ArcScan adds up how many of each item you own: stash plus backpack, quick use and safe pocket.
+- The item list in the console window shows the total as "own n" after the count.
+- The stash must be sorted by NAME (the sort button above the stash list). Other sort orders give
+  wrong totals or none; ArcScan ignores a stash view whose items are visibly out of name order.
+- Totals are collected while you look at the stash: an item is counted once all of its stacks are
+  visible at the same time. Scroll through the whole stash once so every item is seen.
+- Items you no longer have are removed when you look at that part of the stash in the first
+  category tab (all items). Other category tabs only add and update items.
+- Totals are saved in owned.json next to ArcScan.exe, so they are known during a raid, where the
+  stash cannot be seen. In a raid, backpack and quick use are taken from the container screen.
+- Equipment (augment, shield, weapons in the loadout) is not counted.
+- Markings do not use the totals yet (next version).
 
 Settings (F9)
 - F9 opens the settings page in your web browser. It runs on this computer only.
