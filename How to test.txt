@@ -1,4 +1,4 @@
-ArcScan 0.8.3 - loot marking overlay (test build)
+ArcScan 0.8.4 - loot marking overlay (test build)
 
 What it does
 - Detects an open container or your stash in ARC Raiders on GeForce NOW, without a key press.
@@ -13,7 +13,9 @@ What it does
     later workshop levels, projects, extra items. The tag names the first reason not yet covered.
   - In your stash, backpack and quick use, a reserved item you own enough of shows "ok" (e.g. QUEST ok):
     keep it. In containers it is no longer marked for the reserve once you own enough.
-  - Pink ALWAYS: on your "Always pick up" list (only shown once no reserve is open for the item).
+  - Pink ALWAYS: on your "Always pick up" list. While a reserve for the item is still open, the reserve marking
+    with its number is shown instead; once you own enough, ALWAYS is shown everywhere (also in your stash), until
+    your supply drops below the reserve again.
   - Gold VALUE: not needed, but its sell value per kg is at or above your threshold.
   - Grey frame, no tag: not worth taking by these rules.
   - All frames are the same thin line just inside the slot border, so the stack count of the slot stays visible.
@@ -24,6 +26,7 @@ What it does
 - The overlay is click-through and never takes focus; the game keeps all mouse and keyboard input.
 
 What to check in this version
+- An "Always pick up" item you own enough of shows pink ALWAYS, also in the stash (instead of e.g. QUEST ok).
 - Rosary (and other items that match their icon clearly but not perfectly) should no longer show "?".
 - Less flicker: slots with faint borders (blurry stream frames) are found again, blurry counts are read, a stack
   count change no longer lifts the marking, and an item that stays "?" is only read again when the slot changed.
