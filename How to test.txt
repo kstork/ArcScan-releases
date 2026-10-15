@@ -1,4 +1,4 @@
-ArcScan 0.5.1 - loot marking overlay (test build)
+ArcScan 0.6.0 - loot marking overlay (test build)
 
 What it does
 - Detects an open container or your stash in ARC Raiders on GeForce NOW, without a key press.
@@ -12,8 +12,15 @@ What it does
   - Gold VALUE: not reserved, but its sell value per kg is at or above your threshold.
   - Thin grey frame, no tag: not worth taking by these rules.
   - Orange "?": the item could not be identified with confidence.
+- Reads the stack count of every slot (x5, x100) and shows it in the item list in the console window and the log.
+  A count it cannot read clearly is shown as "x?". Weapons and gear show no count.
 - Markings disappear when the container closes or another window becomes active.
 - The overlay is click-through and never takes focus; the game keeps all mouse and keyboard input.
+
+What to check in this version
+- Open your stash and a few containers. In the console window, compare the count after each item name (x5, x56, ...) with the number on the slot.
+- Change a stack while the stash is open (split, move or merge items): the listed count should follow within a second.
+- If a count is wrong or shows "x?", press F8 while it is on screen and send the files from the "captures" folder together with the log file.
 
 Settings (F9)
 - F9 opens the settings page in your web browser. It runs on this computer only.
@@ -57,4 +64,5 @@ Known limits
 - 1920x1080 only.
 - Automatic detection: containers and the stash at any scroll position. Slots cut off at the top or bottom edge of the stash list are not marked.
 - The slot under the mouse cursor is not read; a new slot there is read once the cursor moves away.
-- Stack counts (x5 etc.) are not read yet: the marking shows how many to keep in total, but the tool does not yet stop marking once you own that many.
+- Stack counts are read and listed, but not used yet: the marking still shows how many to keep in total and does not yet stop once you own that many.
+- The digit 9 has not been seen in a test screenshot yet, so counts containing a 9 show as "x?". A screenshot with such a stack (F8) helps.
