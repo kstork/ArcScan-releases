@@ -1,4 +1,4 @@
-ArcScan 0.8.1 - loot marking overlay (test build)
+ArcScan 0.8.2 - loot marking overlay (test build)
 
 What it does
 - Detects an open container or your stash in ARC Raiders on GeForce NOW, without a key press.
@@ -24,6 +24,10 @@ What it does
 - The overlay is click-through and never takes focus; the game keeps all mouse and keyboard input.
 
 What to check in this version
+- Less flicker: slots with faint borders (blurry stream frames) are found again, blurry counts are read, a stack
+  count change no longer lifts the marking, and an item that stays "?" is only read again when the slot changed.
+- Scroll through the stash: owned totals ("own n" in the console, F9 Reserve list) should no longer drop to 0
+  and come back.
 - Markings now show how many you still need. Open the settings page (F9): the Reserve list shows own, keep and
   still need per item. Compare a few with the markings in a container and in the stash.
 - Add an item under "Always pick up" and check it gets a pink ALWAYS marking (when no reserve is open for it).
@@ -90,5 +94,7 @@ Known limits
 - 1920x1080 only.
 - Automatic detection: containers and the stash at any scroll position. Slots cut off at the top or bottom edge of the stash list are not marked.
 - The slot under the mouse cursor is not read; a new slot there is read once the cursor moves away.
-- A slot that stays unsure ("?" or "x?") is read again up to 3 times, one second apart, while the screen is still.
+- A slot that stays unsure ("?" or "x?") is read again up to 3 times while the screen is still, but only when
+  the slot looks different from when it was read (for example after a popup went away).
+- Scrolling the stash still lifts all markings until the list stands still again.
 - Stack counts are read and listed, but not used yet: the marking still shows how many to keep in total and does not yet stop once you own that many.
