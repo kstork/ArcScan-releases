@@ -1,4 +1,4 @@
-ArcScan 0.8.8 - loot marking overlay (test build)
+ArcScan 0.9.0 - loot marking overlay (test build)
 
 What it does
 - Detects an open container or your stash in ARC Raiders on GeForce NOW, without a key press.
@@ -13,6 +13,10 @@ What it does
     later workshop levels, projects, keep in stock. The tag names the first reason not yet covered.
   - In your stash, backpack and quick use, a reserved item you own enough of shows "ok" (e.g. QUEST ok):
     keep it. In containers it is no longer marked for the reserve once you own enough.
+  - Blue RECYCLE n / SALVAGE n / HOME n: in your stash, backpack and quick use, owned items that ArcScan counts
+    as material for a stock item: how many to break down. At base RECYCLE n. In a raid SALVAGE n (break them
+    down now to free space) or HOME n (carry them home: recycling there gives more of an important material).
+    Your own "Keep in stock" amount of that item is never counted as material.
   - Pink ALWAYS: on your "Always pick up" list. While a reserve for the item is still open, the reserve marking
     with its number is shown instead; once you own enough, ALWAYS is shown everywhere (also in your stash), until
     your supply drops below the reserve again.
@@ -29,11 +33,11 @@ What it does
 - The overlay is click-through and never takes focus; the game keeps all mouse and keyboard input.
 
 What to check in this version
-- Add a craftable item under "Keep in stock" (for example 100 Light Ammo) while you have fewer than that. Its
-  recipe materials (Chemicals, Metal Parts) and the best items that break down into them get STOCK markings.
-  The Reserve list on the settings page (F9) shows why ("crafting 100 Light Ammo", "source of Metal Parts
-  (10 each) for Light Ammo").
-- Try the options under "Sources for stock items" and check that the Reserve list and the markings follow.
+- Keep a craftable item in stock (for example 100 Light Ammo) and own a few items that break down into its
+  materials: they show blue RECYCLE n in the stash and HOME n or SALVAGE n in your backpack during a raid.
+  After breaking them down, the leftovers above your stock show VALUE n (if worth selling).
+- Settings page (F9), "Sources for stock items": the new rarity option decides which materials make an item
+  worth carrying home. The Reserve list says "recycle at base" or "salvage in the field" for each source.
 - If something is wrong, press F8 while it is on screen and send the files from the "captures" folder together
   with the log file.
 
@@ -65,6 +69,9 @@ Settings (F9)
 - Sources for stock items: limits for the items marked as sources, combinable: no weapons, modifications,
   augments or shields (on by default); only sources that sell for less than the material they give; a minimum
   yield per item; only the best N sources per material by yield (on, N = 5, by default; applied last).
+- Salvage or bring home: an item is brought home when recycling gives more of an important material than
+  salvaging; important = materials you still need, plus materials of a chosen rarity and above (default Rare).
+  Each source is counted with the yield of the way it will be broken down.
 - Always pick up: items that are always marked, without an amount.
 - Value threshold: value per kg, default 2000.
 - Changes are saved to settings.json next to ArcScan.exe and apply in the game immediately.
