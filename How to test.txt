@@ -1,4 +1,4 @@
-ArcScan 0.6.5 - loot marking overlay (test build)
+ArcScan 0.6.6 - loot marking overlay (test build)
 
 What it does
 - Detects an open container or your stash in ARC Raiders on GeForce NOW, without a key press.
