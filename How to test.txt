@@ -1,4 +1,4 @@
-ArcScan 0.6.0 - loot marking overlay (test build)
+ArcScan 0.6.1 - loot marking overlay (test build)
 
 What it does
 - Detects an open container or your stash in ARC Raiders on GeForce NOW, without a key press.
@@ -20,6 +20,7 @@ What it does
 What to check in this version
 - Open your stash and a few containers. In the console window, compare the count after each item name (x5, x56, ...) with the number on the slot.
 - Change a stack while the stash is open (split, move or merge items): the listed count should follow within a second.
+- Stacks with a 9 (x9, x19, x90) are read from one screenshot so far: please check a few of them.
 - If a count is wrong or shows "x?", press F8 while it is on screen and send the files from the "captures" folder together with the log file.
 
 Settings (F9)
@@ -65,4 +66,3 @@ Known limits
 - Automatic detection: containers and the stash at any scroll position. Slots cut off at the top or bottom edge of the stash list are not marked.
 - The slot under the mouse cursor is not read; a new slot there is read once the cursor moves away.
 - Stack counts are read and listed, but not used yet: the marking still shows how many to keep in total and does not yet stop once you own that many.
-- The digit 9 has not been seen in a test screenshot yet, so counts containing a 9 show as "x?". A screenshot with such a stack (F8) helps.
