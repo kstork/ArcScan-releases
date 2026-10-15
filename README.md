@@ -8,4 +8,4 @@ Built releases of ArcScan, a loot marking overlay for ARC Raiders played on GeFo
 
 ArcScan reads only the screen picture and draws a click-through window on top of it. It sends no input to the game and does not touch the game.
 
-Copyright (c) 2026 Karsten Stork. All rights reserved. See NOTICES.txt for third-party notices.
+Copyright (c) 2026 kstork (github.com/kstork). All rights reserved. See NOTICES.txt for third-party notices.
