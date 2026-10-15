@@ -1,4 +1,4 @@
-ArcScan 0.8.6 - loot marking overlay (test build)
+ArcScan 0.8.7 - loot marking overlay (test build)
 
 What it does
 - Detects an open container or your stash in ARC Raiders on GeForce NOW, without a key press.
@@ -29,6 +29,9 @@ What it does
 - The overlay is click-through and never takes focus; the game keeps all mouse and keyboard input.
 
 What to check in this version
+- Recipe data (for the coming recycling and crafting feature): the first start downloads it once (about 600 small
+  files, up to a minute). The window then shows "Recipe data ready: ... craftable, ... recyclable, ...
+  salvageable items". Please send the log of that first start. Nothing changes in the markings yet.
 - "Extra items you need" is now "Keep in stock" (tag STOCK). Your entries should still be there.
 - In your stash, items worth selling show VALUE n: compare n with what you own minus what you need (F9 Reserve
   list: own minus keep).
@@ -78,7 +81,9 @@ Settings (F9)
 Data sources
 - Items, icons and quests: MetaForge (metaforge.app/arc-raiders).
 - Projects and workshop levels: ARC Data Project, MIT licence (github.com/RaidTheory/arcraiders-data), the data behind arctracker.io.
-- Both are cached in %LOCALAPPDATA%\ArcScan and refreshed once per day. A project that is not in the ARC Data Project yet does not appear; add its items under Keep in stock.
+- Recipes and recycling/salvage yields: MetaForge and the ARC Data Project; where they differ, both are used
+  (every material either lists; recipe amounts at the higher, yields at the lower value).
+- All of it is cached in %LOCALAPPDATA%\ArcScan and refreshed once per day. A project that is not in the ARC Data Project yet does not appear; add its items under Keep in stock.
 
 Updates
 - At every start ArcScan checks github.com/kstork/ArcScan-releases for a newer version (file latest.json).
