@@ -21,7 +21,8 @@ What it does
 What to check in this version
 - The marking frame no longer covers the stack count of the slot.
 - At start, after the first markings appear, the window should say "Self-check: markings show up in ArcScan's own screen reads".
-- Switch between stash tabs a few times: no slot should end up with a wrong name or a "?" that stays.
+- Switch between stash tabs and move a few items: no slot should end up with a wrong name or a "?" that stays.
+  A "?" caused by the category name popping up over a slot should disappear about a second after the popup.
 - Markings on unchanged stacks should no longer flicker. In the log, "stack count of ... changed" should only appear when a stack really changed.
 - Open your stash and a few containers. In the console window, compare the count after each item name (x5, x56, ...) with the number on the slot.
 - Change a stack while the stash is open (split, move or merge items): the listed count should follow within a second.
@@ -70,4 +71,5 @@ Known limits
 - 1920x1080 only.
 - Automatic detection: containers and the stash at any scroll position. Slots cut off at the top or bottom edge of the stash list are not marked.
 - The slot under the mouse cursor is not read; a new slot there is read once the cursor moves away.
+- A slot that stays unsure ("?" or "x?") is read again up to 3 times, one second apart, while the screen is still.
 - Stack counts are read and listed, but not used yet: the marking still shows how many to keep in total and does not yet stop once you own that many.
