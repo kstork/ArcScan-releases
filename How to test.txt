@@ -134,3 +134,6 @@ Known limits
   the slot looks different from when it was read (for example after a popup went away).
 - Scrolling the stash still lifts all markings until the list stands still again.
 - While items are being moved, a half-finished frame can be read for a moment; the next look corrects it.
+- When a container reveals its items one by one, a slot can show a wrong item or "?" for a moment until it is
+  fully revealed.
+- An item that stays "?" in the stash is not counted, so the stash note cannot reach "complete" while it is there.
