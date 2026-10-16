@@ -2,7 +2,7 @@
 
 Built releases of ArcScan, a loot marking overlay for ARC Raiders played on GeForce NOW (Windows, 1920x1080).
 
-- Download `ArcScan.exe` from the latest release and put it in a folder you can write to.
+- Download `ArcScan.exe` from this repository and put it in a folder you can write to.
 - ArcScan checks this repository at every start and updates itself.
 - `How to test.txt` in each release describes the features and keys.
 

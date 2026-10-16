@@ -33,9 +33,11 @@ THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 2. Data used at runtime (downloaded by ArcScan, not included in ArcScan.exe)
-- Items, item icons and quests: MetaForge, https://metaforge.app/arc-raiders
-- Projects and workshop levels: ARC Data Project, MIT licence,
+- Items, item icons, quests, recipes and breakdown yields: MetaForge,
+  https://metaforge.app/arc-raiders
+- Projects, workshop levels, recipes and breakdown yields: ARC Data Project, MIT licence,
   https://github.com/RaidTheory/arcraiders-data
+  (recipes and yields from both sources are combined)
 
 3. ARC Raiders
 Game content and materials are trademarks and copyrights of Embark Studios and its licensors.
