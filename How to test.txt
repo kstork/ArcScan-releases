@@ -1,4 +1,4 @@
-ArcScan 0.9.8 - loot marking overlay (test build)
+ArcScan 0.9.9 - loot marking overlay (test build)
 
 What it does
 - Detects an open container or your stash in ARC Raiders on GeForce NOW, without a key press.
@@ -36,12 +36,16 @@ What it does
 - The overlay is click-through and never takes focus; the game keeps all mouse and keyboard input.
 
 What to check in this version
-- Settings page (F9), "Keep in stock": the list is now in priority order, with arrows to move an item up or
-  down. When two stock items need the same material, the higher one gets what you own first (before, the
-  item whose name came first alphabetically won). New items are added at the bottom.
-- Example: keep two craftable items that both need Metal Parts and own only enough for one. The item at the
-  top shows its sources and materials as covered; the other one shows STOCK n for what is still missing.
-  Swap them with the arrows and the markings swap too.
+- Stash completeness check: ArcScan reads the stash header ("75/112") in the All tab and compares it with the
+  stash slots it has seen. Until it has seen every slot:
+  - a small orange note right of the STASH title says how many slots are not seen yet;
+  - the console window says the same ("Owned items: 41 of 75 stash slots known ...");
+  - your own slots show VALUE without a number (the number of items you can sell could be too high);
+  - the settings page (F9) shows the status above the Reserve list.
+  After the update ArcScan has to see every slot once: open the stash in the All tab (sorted by name) and
+  scroll slowly from top to bottom. The note should disappear and VALUE n come back.
+- Move a stack out of the stash or merge stacks: the note should appear again until you scroll over that part.
+- A category tab (not All) shows only that category's count; ArcScan ignores it there.
 - If something is wrong, press F8 while it is on screen and send the files from the "captures" folder together
   with the log file.
 
