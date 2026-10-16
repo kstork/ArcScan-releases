@@ -1,4 +1,4 @@
-ArcScan 0.9.4 - loot marking overlay (test build)
+ArcScan 0.9.5 - loot marking overlay (test build)
 
 What it does
 - Detects an open container or your stash in ARC Raiders on GeForce NOW, without a key press.
@@ -36,10 +36,11 @@ What it does
 - The overlay is click-through and never takes focus; the game keeps all mouse and keyboard input.
 
 What to check in this version
-- Clean-up release: markings, settings page and owned totals should behave exactly as in 0.9.3. Your
-  settings.json and owned.json carry over unchanged.
-- Settings page (F9), "Keep in stock": the text now says that owned items are marked to break down only once
-  everything for the stock item is there.
+- Only one ArcScan can run at a time. Start ArcScan.exe a second time while it is running: the new window says
+  "ArcScan is already running in another window" and closes when you press Enter. (Two copies at once read each
+  other's markings as part of the game picture and show "?" everywhere.)
+- The update to this version and every later self-update must still restart normally.
+- Note: a copy of 0.9.4 or older that is still running is not detected; close it yourself before starting 0.9.5.
 - If something is wrong, press F8 while it is on screen and send the files from the "captures" folder together
   with the log file.
 
