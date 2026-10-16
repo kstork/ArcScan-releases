@@ -1,4 +1,4 @@
-ArcScan 0.9.16 - loot marking overlay (test build)
+ArcScan 0.9.17 - loot marking overlay (test build)
 
 What it does
 - Detects an open container, your stash or your inventory in a raid in ARC Raiders on GeForce NOW, without a key press.
@@ -37,12 +37,13 @@ What it does
 - The overlay is click-through and never takes focus; the game keeps all mouse and keyboard input.
 
 What to check in this version
-- The orange "stash slots not seen" note: ArcScan now reads the stash size from the header every time it starts
-  instead of keeping the number from an earlier session. Open the stash in the All tab, scroll through it once:
-  the note should go away. If it stays, send the log and the picture captures\unsure\<time>_stash_header.png
-  (saved once per run when the header cannot be read).
-- 0.9.15 (raid inventory marked) and 0.9.14 (captures\unsure after a session, F8 of a container while it is still
-  revealing its items) still apply.
+- Quests that name their items only in the task text are now counted: Shoring Up Defenses (1 ARC Alloy),
+  Nothing Ventured (3 Comet Igniter, 3 Rocketeer Driver, 6 ARC Circuitry, 6 ARC Motion Core), A Lay of the Land
+  (1 LiDAR Scanner), Taking Stock (3 Industrial Battery). Check them on the settings page (F9, quests).
+- The Outpost project "Sheltered Retreat (Outpost)" is in the project list: phase 2 needs 3 Planks, 5 Sheet
+  Metal, 10 ARC Alloy, 3 Advanced Electrical Components (from game guides; compare with the game). Phases 1 and 3
+  need no items. Set the phases you have done on the settings page, or switch the project off.
+- 0.9.16: the stash note went away after one scroll in the All tab in your last log.
 - If something is wrong, press F8 while it is on screen and send the files from the "captures" folder together
   with the log file.
 
