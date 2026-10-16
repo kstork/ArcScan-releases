@@ -1,4 +1,4 @@
-ArcScan 0.9.17 - loot marking overlay (test build)
+ArcScan 0.9.18 - loot marking overlay (test build)
 
 What it does
 - Detects an open container, your stash or your inventory in a raid in ARC Raiders on GeForce NOW, without a key press.
@@ -37,13 +37,14 @@ What it does
 - The overlay is click-through and never takes focus; the game keeps all mouse and keyboard input.
 
 What to check in this version
-- Quests that name their items only in the task text are now counted: Shoring Up Defenses (1 ARC Alloy),
-  Nothing Ventured (3 Comet Igniter, 3 Rocketeer Driver, 6 ARC Circuitry, 6 ARC Motion Core), A Lay of the Land
-  (1 LiDAR Scanner), Taking Stock (3 Industrial Battery). Check them on the settings page (F9, quests).
-- The Outpost project "Sheltered Retreat (Outpost)" is in the project list: phase 2 needs 3 Planks, 5 Sheet
-  Metal, 10 ARC Alloy, 3 Advanced Electrical Components (from game guides; compare with the game). Phases 1 and 3
-  need no items. Set the phases you have done on the settings page, or switch the project off.
-- 0.9.16: the stash note went away after one scroll in the All tab in your last log.
+- New stash check by list position (see "Owned items"): scroll through the stash once (All tab, sorted by name,
+  pause briefly every few rows). The note should count down and disappear at the end; the orange lines next to
+  the scrollbar show the rows still missing.
+- Move a few items between backpack and stash, then scroll: the note should ask only for the part of the list
+  from the first moved item (by name) on, not for everything.
+- Category tabs: open one (e.g. materials) and scroll through it: the note counts that tab ("tab slots").
+- If the note points the wrong way or the lines sit in the wrong place, press F8 there and send the captures
+  with the log (lines "STASH VIEW ..." show where ArcScan thinks the view is).
 - If something is wrong, press F8 while it is on screen and send the files from the "captures" folder together
   with the log file.
 
@@ -52,19 +53,27 @@ Owned items
 - The item list in the console window shows the total as "own n" after the count.
 - The stash must be sorted by NAME (the sort button above the stash list). Other sort orders give
   wrong totals or none; ArcScan ignores a stash view whose items are visibly out of name order.
-- Totals are collected while you look at the stash: an item is counted once all of its stacks are
-  visible at the same time. Scroll through the whole stash once so every item is seen.
-- Items you no longer have are removed when you look at that part of the stash in the first
-  category tab (all items). Other category tabs only add and update items.
+- Totals are collected while you look at the stash. ArcScan knows from the scrollbar where each view is in the
+  list, so an item is counted once all of its stacks have been seen, also across several views. Scroll through
+  the stash once after starting ArcScan; stop for a moment now and then (only a still screen is read).
+- The category tabs (left of the stash) work the same way: each tab is its own list with its own count.
+- Items you no longer have are removed when you look at the part of the list where they would be: in the All
+  tab any item, in a category tab the items seen in that tab before.
 - Totals are saved in owned.json next to ArcScan.exe, so they are known during a raid, where the
   stash cannot be seen. In a raid, backpack and quick use are taken from the container screen.
 - Equipment (augment, shield, weapons in the loadout) is not counted.
-- Completeness: ArcScan reads the stash header ("75/112", All tab) and compares it with the stash slots it has
-  seen. Until it has seen every slot, an orange note right of the STASH title says how many slots are missing
-  and where to look, e.g. "↑ Ammo  ↓ Wires +1" (the nearest item above and below the current view that
-  you moved between backpack and stash). The note waits about 1.5 seconds after a change.
-  The stash size is read again in every run. Until the header has been read (or when it cannot be read), there
+- Completeness: ArcScan reads the header ("117/136" in the All tab, the number of items in a category tab) and
+  compares it with the slots it has seen in this run. Until it has seen every slot of the tab you are in, an
+  orange note right of the STASH title says how many are missing and which way to scroll ("scroll ↓",
+  "scroll ↑", "scroll ↑ and ↓"), and short orange lines right of the scrollbar show where those rows are.
+  "in view: ? or cursor" means the missing slots are on screen but covered (cursor, popup) or unreadable.
+  The note waits about 1.5 seconds after a change.
+- When you move items between backpack and stash, only the part of the list from that item on (by name) has to
+  be looked at again. Several moves in a row: scroll once from the first moved item (by name) to the end.
+- The stash size is read again in every run. Until the header has been read (or when it cannot be read), there
   is no note and VALUE shows no number; the console says "stash size not read yet".
+- A change to the backpack, quick use or safe pocket counts once two looks in a row agree (an item dropping into
+  a slot can look like another item for a moment).
 
 Settings (F9)
 - F9 opens the settings page in your web browser. It runs on this computer only. Changes are saved to
