@@ -1,4 +1,4 @@
-ArcScan 0.9.11 - loot marking overlay (test build)
+ArcScan 0.9.12 - loot marking overlay (test build)
 
 What it does
 - Detects an open container or your stash in ARC Raiders on GeForce NOW, without a key press.
@@ -36,15 +36,17 @@ What it does
 - The overlay is click-through and never takes focus; the game keeps all mouse and keyboard input.
 
 What to check in this version
-- Stash note (orange, right of the STASH title) now says where to look, in two lines:
-  "3 stash slots not seen" and, for example, "↑ Ammo  ↓ Wires +1": the nearest item above and below the
-  current view whose stash count may have changed (items you moved between your backpack and the stash),
-  "+1" = one more in that direction. Each item drops off once all of its stacks have been in view.
-  Without such items it says "scroll ↑", "scroll ↓" or "scroll through stash".
-- Move several things in and out, then scroll to the items the note names: the note should count down and
-  disappear. The settings page (F9) lists all items to look at.
-- The note waits about 1.5 seconds after a change before it updates, so it no longer flickers while items move.
-- 0.9.10 changes (not tested yet): stacks ok / VALUE n per stack, workshop level first, quick use not sources.
+- New settings page (F9), four tabs:
+  1. Quests & my items: quests (filters Active + open / Active / Open / Done; the search also finds quests by the
+     items they need), one search to add an item to Keep in stock or Always pick up, both lists. Keep in stock is
+     in priority order: drag the handle (the dots on the left) or use the arrows.
+  2. What I need: the reserve list, filtered to "still needed" (also "all" and "sources and materials").
+  3. Workshop & projects: fully upgraded stations and finished or ended projects are hidden ("show" brings them back).
+  4. Rules: source limits, carry home or salvage (with a sentence that says what the two settings do), value per kg.
+  The page remembers the last tab. The tab titles show counts (active quests, still needed, open stations).
+- The colour legend is behind the button "What do the markings mean?" at the top; the stash status is next to it.
+- All settings are the same as before; check that your quests, stock list (with its order), always list,
+  workshop levels and projects look the same.
 - If something is wrong, press F8 while it is on screen and send the files from the "captures" folder together
   with the log file.
 
