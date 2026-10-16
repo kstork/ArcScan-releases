@@ -1,4 +1,4 @@
-ArcScan 0.9.2 - loot marking overlay (test build)
+ArcScan 0.9.3 - loot marking overlay (test build)
 
 What it does
 - Detects an open container or your stash in ARC Raiders on GeForce NOW, without a key press.
@@ -36,11 +36,10 @@ What it does
 - The overlay is click-through and never takes focus; the game keeps all mouse and keyboard input.
 
 What to check in this version
-- Blue RECYCLE / SALVAGE / HOME now waits until everything for the stock item is there. Example: keep a crafted
-  item in stock (for example Light Ammo) and own items that break down into only one of its materials: they now
-  show STOCK ok (keep) instead of RECYCLE n. Once you also have the other materials (or items that break down
-  into them), the blue advice appears.
-- Settings, owned totals and markings otherwise as in 0.9.1.
+- Settings page (F9), Reserve list: it now uses exactly the numbers of the markings, and it updates while the page
+  stays open (every few seconds), so the "own" column follows what you pick up or move in your stash. After a
+  change on the page the list updates once the change is saved (a moment later).
+- Markings should be the same as in 0.9.2; ArcScan does a little less work per screen check.
 - If something is wrong, press F8 while it is on screen and send the files from the "captures" folder together
   with the log file.
 
