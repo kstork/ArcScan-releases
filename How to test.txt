@@ -1,4 +1,4 @@
-ArcScan 0.9.15 - loot marking overlay (test build)
+ArcScan 0.9.16 - loot marking overlay (test build)
 
 What it does
 - Detects an open container, your stash or your inventory in a raid in ARC Raiders on GeForce NOW, without a key press.
@@ -37,11 +37,12 @@ What it does
 - The overlay is click-through and never takes focus; the game keeps all mouse and keyboard input.
 
 What to check in this version
-- The inventory you open in a raid (without a container, only your loadout) is now marked like your backpack on
-  the container screen: reserve tags, VALUE, HOME / SALVAGE. Its backpack, quick use and safe pocket also update
-  your owned totals for the field.
-- 0.9.14 still applies: please send captures\unsure with the log after a session, and an F8 capture of a
-  container while it is still revealing its items.
+- The orange "stash slots not seen" note: ArcScan now reads the stash size from the header every time it starts
+  instead of keeping the number from an earlier session. Open the stash in the All tab, scroll through it once:
+  the note should go away. If it stays, send the log and the picture captures\unsure\<time>_stash_header.png
+  (saved once per run when the header cannot be read).
+- 0.9.15 (raid inventory marked) and 0.9.14 (captures\unsure after a session, F8 of a container while it is still
+  revealing its items) still apply.
 - If something is wrong, press F8 while it is on screen and send the files from the "captures" folder together
   with the log file.
 
@@ -61,6 +62,8 @@ Owned items
   seen. Until it has seen every slot, an orange note right of the STASH title says how many slots are missing
   and where to look, e.g. "↑ Ammo  ↓ Wires +1" (the nearest item above and below the current view that
   you moved between backpack and stash). The note waits about 1.5 seconds after a change.
+  The stash size is read again in every run. Until the header has been read (or when it cannot be read), there
+  is no note and VALUE shows no number; the console says "stash size not read yet".
 
 Settings (F9)
 - F9 opens the settings page in your web browser. It runs on this computer only. Changes are saved to
