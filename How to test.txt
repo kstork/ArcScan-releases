@@ -1,4 +1,4 @@
-ArcScan 0.9.0 - loot marking overlay (test build)
+ArcScan 0.9.1 - loot marking overlay (test build)
 
 What it does
 - Detects an open container or your stash in ARC Raiders on GeForce NOW, without a key press.
@@ -33,11 +33,13 @@ What it does
 - The overlay is click-through and never takes focus; the game keeps all mouse and keyboard input.
 
 What to check in this version
-- Keep a craftable item in stock (for example 100 Light Ammo) and own a few items that break down into its
-  materials: they show blue RECYCLE n in the stash and HOME n or SALVAGE n in your backpack during a raid.
-  After breaking them down, the leftovers above your stock show VALUE n (if worth selling).
-- Settings page (F9), "Sources for stock items": the new rarity option decides which materials make an item
-  worth carrying home. The Reserve list says "recycle at base" or "salvage in the field" for each source.
+- This version fixes small faults; markings should behave as in 0.9.0. Check that your settings, owned
+  totals and markings are as before after the update.
+- A slot whose item stayed unsure ("?") is now read again properly once it looks different (for example
+  when the stream gets sharper).
+- Settings, owned totals and downloaded data are now saved safely: a crash while saving no longer leaves a
+  broken file. If settings.json ever cannot be read, ArcScan says so at start, uses default settings and keeps
+  the old file as settings.broken.json (send it with the log).
 - If something is wrong, press F8 while it is on screen and send the files from the "captures" folder together
   with the log file.
 
@@ -113,4 +115,3 @@ Known limits
 - A slot that stays unsure ("?" or "x?") is read again up to 3 times while the screen is still, but only when
   the slot looks different from when it was read (for example after a popup went away).
 - Scrolling the stash still lifts all markings until the list stands still again.
-- Stack counts are read and listed, but not used yet: the marking still shows how many to keep in total and does not yet stop once you own that many.
