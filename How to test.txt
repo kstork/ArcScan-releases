@@ -1,4 +1,4 @@
-ArcScan 0.9.12 - loot marking overlay (test build)
+ArcScan 0.9.13 - loot marking overlay (test build)
 
 What it does
 - Detects an open container or your stash in ARC Raiders on GeForce NOW, without a key press.
@@ -36,17 +36,11 @@ What it does
 - The overlay is click-through and never takes focus; the game keeps all mouse and keyboard input.
 
 What to check in this version
-- New settings page (F9), four tabs:
-  1. Quests & my items: quests (filters Active + open / Active / Open / Done; the search also finds quests by the
-     items they need), one search to add an item to Keep in stock or Always pick up, both lists. Keep in stock is
-     in priority order: drag the handle (the dots on the left) or use the arrows.
-  2. What I need: the reserve list, filtered to "still needed" (also "all" and "sources and materials").
-  3. Workshop & projects: fully upgraded stations and finished or ended projects are hidden ("show" brings them back).
-  4. Rules: source limits, carry home or salvage (with a sentence that says what the two settings do), value per kg.
-  The page remembers the last tab. The tab titles show counts (active quests, still needed, open stations).
-- The colour legend is behind the button "What do the markings mean?" at the top; the stash status is next to it.
-- All settings are the same as before; check that your quests, stock list (with its order), always list,
-  workshop levels and projects look the same.
+- Research Station added to the workshop (settings page F9, tab "Workshop & projects"): set its current level.
+  It starts at level 0, so its level 1 items (3 Mini Pump, 35 Planks, 5 Battered Paperback) are marked BENCH
+  until you set your real level. The levels come from game guides (Frozen Trail 2.0); tell me if a number in
+  the game differs.
+- 0.9.12 (new settings page) and 0.9.10 (stacks, priority, quick use) are still to be checked.
 - If something is wrong, press F8 while it is on screen and send the files from the "captures" folder together
   with the log file.
 
