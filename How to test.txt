@@ -9,10 +9,11 @@ What it does
   - Green PROJ n: needed for an open phase of a counted project.
   - Green STOCK n: on your "Keep in stock" list.
   - n = how many you still need: everything reserved minus what you own (see "Owned items").
-  - What you own covers the reasons in this order: active quests, next workshop level, other quests and
+  - What you own covers the reasons in this order: next workshop level, active quests, other quests and
     later workshop levels, projects, keep in stock. The tag names the first reason not yet covered.
-  - In your stash, backpack and quick use, a reserved item you own enough of shows "ok" (e.g. QUEST ok):
-    keep it. In containers it is no longer marked for the reserve once you own enough.
+  - In your stash, backpack and quick use, a reserved item you own enough of shows "ok" (e.g. QUEST ok) on the
+    stacks you need: the biggest stacks are kept whole until the reserve is covered. In containers it is no
+    longer marked for the reserve once you own enough.
   - Blue RECYCLE n / SALVAGE n / HOME n: in your stash, backpack and quick use, owned items that ArcScan counts
     as material for a stock item: how many to break down. At base RECYCLE n. In a raid SALVAGE n (break them
     down now to free space) or HOME n (carry them home: recycling there gives more of an important material).
@@ -24,9 +25,9 @@ What it does
     with its number is shown instead; once you own enough, ALWAYS is shown everywhere (also in your stash), until
     your supply drops below the reserve again.
   - Gold VALUE: not needed, but its sell value per kg is at or above your threshold.
-  - In your stash, backpack and quick use, VALUE n says how many of that item you can sell and still keep
-    everything reserved (n is for the item in total, shown on each of its stacks). It is only reliable once
-    ArcScan has seen all stacks of the item (scroll through the stash sorted by name).
+  - In your stash, backpack and quick use, the stacks beyond what you need show VALUE n: this stack (n items)
+    can be sold. Surplus stacks not worth their weight get the grey frame. The number is only shown once
+    ArcScan has seen every stash slot (see "Owned items"); until then VALUE has no number.
   - Grey frame, no tag: not worth taking by these rules.
   - All frames are the same thin line just inside the slot border, so the stack count of the slot stays visible.
   - Orange "?": the item could not be identified with confidence.
@@ -56,34 +57,49 @@ Owned items
 - Totals are saved in owned.json next to ArcScan.exe, so they are known during a raid, where the
   stash cannot be seen. In a raid, backpack and quick use are taken from the container screen.
 - Equipment (augment, shield, weapons in the loadout) is not counted.
+- Completeness: ArcScan reads the stash header ("75/112", All tab) and compares it with the stash slots it has
+  seen. Until it has seen every slot, an orange note right of the STASH title says how many slots are missing
+  and where to look, e.g. "↑ Ammo  ↓ Wires +1" (the nearest item above and below the current view that
+  you moved between backpack and stash). The note waits about 1.5 seconds after a change.
 
 Settings (F9)
-- F9 opens the settings page in your web browser. It runs on this computer only.
-- Quests: every quest starts as Open and its required items are kept in reserve. Set finished quests to Done to release their items. Set the quests you are working on to Active to highlight their items in cyan. "Set all shown quests to" applies Open or Done to every quest in the current list (use the search box to narrow it, e.g. by trader).
-- Projects: ticked projects keep all their open phases in reserve. Choose how many phases you have completed. Projects past their end date start unticked.
-- Workshop: choose each station's current level. All higher levels are kept in reserve.
-- Reserve: the combined amount per item and where it comes from.
-- Keep in stock: how many of an item you always want to have, on top of the reserve (reserve 50 + stock 30 =
-  keep 80). Entries from "Extra items you need" in older versions carry over.
-- Recycling and crafting: while you are short of a stock item, items that break down into it are marked too
-  (items you own count first, at their yield). For a craftable stock item, what is still missing is crafted:
-  its recipe materials are marked, and items that break down into those. Nothing deeper than that, and
-  nothing more once you have enough.
-- Sources for stock items: limits for the items marked as sources, combinable: no weapons, modifications,
-  augments or shields (on by default); only sources that sell for less than the material they give; a minimum
-  yield per item; only the best N sources per material by yield (on, N = 5, by default; applied last).
-- Salvage or bring home: an item is brought home when recycling gives more of an important material than
-  salvaging; important = materials you still need, plus materials of a chosen rarity and above (default Rare).
-  Each source is counted with the yield of the way it will be broken down.
-- Always pick up: items that are always marked, without an amount.
-- Value threshold: value per kg, default 2000.
-- Changes are saved to settings.json next to ArcScan.exe and apply in the game immediately.
+- F9 opens the settings page in your web browser. It runs on this computer only. Changes are saved to
+  settings.json next to ArcScan.exe and apply in the game immediately. The page remembers the last tab.
+- At the top: the stash status and the button "What do the markings mean?" (colour legend).
+- Tab "Quests & my items":
+  - Quests: every quest starts as Open and its required items are kept. Set the quests you are working on to
+    Active (cyan, they come first) and finished ones to Done (their items are released). Filters: Active + open,
+    Active, Open, Done; the search also finds quests by the items they need. "Set all shown quests to" applies
+    Open or Done to every quest in the current list.
+  - Add an item: one search; each result can be added to Keep in stock or Always pick up.
+  - Keep in stock: how many of an item you always want, on top of quests, workshop and projects (reserve 50 +
+    stock 30 = keep 80). The list is the priority: the top item gets the materials you own first. Drag the
+    handle or use the arrows. While you are short of a stock item, items that break down into it are marked
+    too (owned ones count first, at their yield); for a craftable one its recipe materials and the items that
+    break down into those. Nothing deeper, and nothing more once you have enough.
+  - Always pick up: items that are always marked, without an amount.
+- Tab "What I need": everything kept, what you own and what you still need (filter: still needed, all, sources
+  and materials). Same numbers as the markings; updates every few seconds.
+- Tab "Workshop & projects": each station's current level (higher levels are kept; the next level first) and
+  the counted projects with their completed phases. Fully upgraded stations and finished or ended projects are
+  hidden ("show"). The Research Station's levels come from game guides until the ARC Data Project has them.
+- Tab "Rules":
+  - Sources for stock items, combinable: no weapons, modifications, augments, shields or quick-use items (on by
+    default); only sources that sell for less than the material they give; a minimum yield; only the best N
+    sources per material by yield (on, N = 5; applied last).
+  - Carry home or salvage: a source goes HOME when recycling gives more of a material you still need (from the
+    chosen rarity, default Common = all) or of any material of a second chosen rarity and above (default Rare)
+    than salvaging; otherwise SALVAGE. A sentence on the page says what the two settings do together. Each
+    source is counted with the yield of the way it will be broken down.
+  - Value threshold: value per kg, default 2000.
 
 Data sources
 - Items, icons and quests: MetaForge (metaforge.app/arc-raiders).
 - Projects and workshop levels: ARC Data Project, MIT licence (github.com/RaidTheory/arcraiders-data), the data behind arctracker.io.
 - Recipes and recycling/salvage yields: MetaForge and the ARC Data Project; where they differ, both are used
   (every material either lists; recipe amounts at the higher, yields at the lower value).
+- Items added with Frozen Trail (October 2026) have no recipes in either source yet, so they cannot be planned
+  for crafting; this fills in when the sources are updated.
 - All of it is cached in %LOCALAPPDATA%\ArcScan and refreshed once per day. A project that is not in the ARC Data Project yet does not appear; add its items under Keep in stock.
 
 Updates
@@ -104,6 +120,7 @@ Windows SmartScreen
 Keys
 - F8: read the current screen manually and save a screenshot plus an annotated copy in the "captures" folder.
 - F9: open the settings page.
+- Only one ArcScan can run at a time; a second start says so and closes.
 - While ArcScan runs, the game does not receive F8 and F9.
 
 Log file
@@ -116,3 +133,5 @@ Known limits
 - A slot that stays unsure ("?" or "x?") is read again up to 3 times while the screen is still, but only when
   the slot looks different from when it was read (for example after a popup went away).
 - Scrolling the stash still lifts all markings until the list stands still again.
+- While items are being moved, a half-finished frame can be read for a moment; the next look corrects it.
+- The in-raid inventory without a container (loadout only) is not marked yet.
