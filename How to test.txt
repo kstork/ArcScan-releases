@@ -1,4 +1,4 @@
-ArcScan 0.9.10 - loot marking overlay (test build)
+ArcScan 0.9.11 - loot marking overlay (test build)
 
 What it does
 - Detects an open container or your stash in ARC Raiders on GeForce NOW, without a key press.
@@ -36,13 +36,15 @@ What it does
 - The overlay is click-through and never takes focus; the game keeps all mouse and keyboard input.
 
 What to check in this version
-- Several stacks of an item you own enough of: the biggest stacks show "<reason> ok" (keep them), the smaller
-  rest shows VALUE n with that stack's count (sell that stack). Stacks are never split. If the surplus is not
-  worth its weight, those stacks get the grey frame instead.
-- New priority: the next workshop level now comes first (BENCH), before active quests.
-- Quick-use items (grenades, medicine, shield rechargers, ziplines, ...) are no longer marked as sources for
-  stock items (setting "No weapons, ... or quick-use items" on the settings page).
-- The Stash station is gone from the workshop list (its levels only cost money).
+- Stash note (orange, right of the STASH title) now says where to look, in two lines:
+  "3 stash slots not seen" and, for example, "↑ Ammo  ↓ Wires +1": the nearest item above and below the
+  current view whose stash count may have changed (items you moved between your backpack and the stash),
+  "+1" = one more in that direction. Each item drops off once all of its stacks have been in view.
+  Without such items it says "scroll ↑", "scroll ↓" or "scroll through stash".
+- Move several things in and out, then scroll to the items the note names: the note should count down and
+  disappear. The settings page (F9) lists all items to look at.
+- The note waits about 1.5 seconds after a change before it updates, so it no longer flickers while items move.
+- 0.9.10 changes (not tested yet): stacks ok / VALUE n per stack, workshop level first, quick use not sources.
 - If something is wrong, press F8 while it is on screen and send the files from the "captures" folder together
   with the log file.
 
