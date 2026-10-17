@@ -1,19 +1,23 @@
-ArcScan 0.9.19 - loot marking overlay (test build)
+ArcScan 0.9.20 - loot marking overlay (test build)
 
 What it does
 - Detects an open container, your stash or your inventory in a raid in ARC Raiders on GeForce NOW, without a key press.
 - Marks every item slot with a frame colour and a short tag:
   - Cyan ACTIVE n: needed for a quest you set to Active.
-  - Green BENCH n: needed for the next level of a workshop station.
-  - Green QUEST n: needed for an open quest (or BENCH n: a later workshop level).
+  - Green BENCH n: needed for a workshop station level (the next level first, later levels after active quests).
+  - Green QUEST n: needed for an open quest.
   - Green PROJ n: needed for an open phase of a counted project.
   - Green STOCK n: on your "Keep in stock" list.
+  - An item that breaks down into a material one of these still needs carries that material's tag (e.g. a
+    source of quest Fabric shows QUEST n).
   - n = how many you still need: everything reserved minus what you own (see "Owned items").
-  - What you own covers the reasons in this order: next workshop level, active quests, other quests and
-    later workshop levels, projects, keep in stock. The tag names the first reason not yet covered.
+  - What you own covers the reasons in this order: next workshop level, active quests, later workshop levels,
+    other quests, projects, keep in stock. The tag names the first reason not yet covered.
   - In your stash, backpack and quick use, a reserved item you own enough of shows "ok" (e.g. QUEST ok) on the
     stacks you need: the biggest stacks are kept whole until the reserve is covered. In containers it is no
-    longer marked for the reserve once you own enough.
+    longer marked for the reserve once you own enough. Smaller stacks beyond that show VALUE n (sell this
+    stack); once no whole surplus stack is left, the kept stack holding more than needed shows VALUE n with the
+    units beyond (worth selling items only).
   - Blue RECYCLE n / SALVAGE n / HOME n: break-down advice for materials that the next workshop level, your
     quests, projects or "Keep in stock" still need (items that break down into them, and the recipe materials of
     crafted items). In your stash RECYCLE n; in a raid SALVAGE n (break them down now) or HOME n (carry them home:
@@ -42,13 +46,13 @@ What it does
 - The overlay is click-through and never takes focus; the game keeps all mouse and keyboard input.
 
 What to check in this version
-- Break-down advice now works for workshop levels, quests and projects too, not only "Keep in stock". Expect more
-  blue markings, in containers and on your own slots.
-- Your own items beyond what they are kept for show RECYCLE n right away (stash), smallest stacks first.
-- Containers: items your stash already covers show SALVAGE n / HOME n; grey loot that salvages into a missing
-  material shows SALVAGE n. If that marks too much, the Rules tab limits the sources (best N, minimum yield,
-  value check); the rarity selector moves common materials from HOME to SALVAGE.
-- The F9 "What I need" list shows the new sources with their reasons (e.g. "source of Metal Parts ... for ...").
+- Priority order: later workshop levels now come right after active quests, before other quests.
+- Items that break down into a quest, project or workshop material show that tag (QUEST n, PROJ n, BENCH n)
+  instead of STOCK n.
+- Stacks: when all stacks of an item are needed except part of one, that stack shows VALUE n (the units beyond).
+- 0.9.19 still applies: break-down for workshop, quests and projects; surplus broken down at once, smallest
+  stacks first; SALVAGE n / HOME n on loot your stash already covers; SALVAGE n on grey loot that salvages
+  into a missing material.
 - If something is wrong, press F8 while it is on screen and send the files from the "captures" folder together
   with the log file.
 
