@@ -1,4 +1,4 @@
-ArcScan 0.9.23 - loot marking overlay (test build)
+ArcScan 0.9.24 - loot marking overlay (test build)
 
 What it does
 - Detects an open container, your stash or your inventory in a raid in ARC Raiders on GeForce NOW, without a key press.
@@ -57,12 +57,12 @@ What it does
 - The overlay is click-through and never takes focus; the game keeps all mouse and keyboard input.
 
 What to check in this version
-- Always pick up now includes what breaks down into the item (and, for a crafted item, its recipe materials and
-  their sources): pink break-down tags (loot SALVAGE n / HOME n, your own copies RECYCLE n beyond every reserve
-  and stock amount), recipe materials ALWAYS. Items on your Always recycle / salvage list stay violet.
-- 0.9.22: "Items without a rule" (settings, first tab, bottom). 0.9.21: Always Pick up / Recycle / Salvage.
-- 0.9.20 and 0.9.19: priority order, source tags, partial-stack VALUE, break-down for all reserves, surplus broken
-  down at once (smallest stacks first), field SALVAGE.
+- Stash check: one misread slot (or an Amplified weapon sorted under another name) no longer stops ArcScan from
+  using the whole view, so the list end gets counted. Scroll through the stash once: the note should reach the
+  end and disappear. The log says "STASH VIEW slot ... is out of name order" for such slots.
+- 0.9.23: Always pick up counts its sources (pink break-down tags) and recipe materials (ALWAYS).
+- 0.9.22: "Items without a rule". 0.9.21: Always Pick up / Recycle / Salvage. 0.9.19/0.9.20: break-down for all
+  reserves, priority order, source tags, partial-stack VALUE.
 - If something is wrong, press F8 while it is on screen and send the files from the "captures" folder together
   with the log file.
 
@@ -70,7 +70,9 @@ Owned items
 - ArcScan adds up how many of each item you own: stash plus backpack, quick use and safe pocket.
 - The item list in the console window shows the total as "own n" after the count.
 - The stash must be sorted by NAME (the sort button above the stash list). Other sort orders give
-  wrong totals or none; ArcScan ignores a stash view whose items are visibly out of name order.
+  wrong totals or none; ArcScan ignores a stash view with several items out of name order. A single item out
+  of order (a misread slot, or an item the game sorts under another name, e.g. Amplified weapons) is counted
+  as a seen slot but not as that item.
 - Totals are collected while you look at the stash. ArcScan knows from the scrollbar where each view is in the
   list, so an item is counted once all of its stacks have been seen, also across several views. Scroll through
   the stash once after starting ArcScan; stop for a moment now and then (only a still screen is read).
