@@ -1,4 +1,4 @@
-ArcScan 0.9.24 - loot marking overlay (test build)
+ArcScan 0.9.25 - loot marking overlay (test build)
 
 What it does
 - Detects an open container, your stash or your inventory in a raid in ARC Raiders on GeForce NOW, without a key press.
@@ -57,12 +57,12 @@ What it does
 - The overlay is click-through and never takes focus; the game keeps all mouse and keyboard input.
 
 What to check in this version
-- Stash check: one misread slot (or an Amplified weapon sorted under another name) no longer stops ArcScan from
-  using the whole view, so the list end gets counted. Scroll through the stash once: the note should reach the
-  end and disappear. The log says "STASH VIEW slot ... is out of name order" for such slots.
+- Tier IV weapons (e.g. Ferro IV, Stitcher IV) are read as IV, no longer as III or as another weapon. In your stash
+  sorted by name, a slot that does not fit between its neighbours is read as the close alternative that fits
+  (log: "ORDER slot ... read as ...").
+- 0.9.24: one odd slot no longer stops the stash check; scroll through once and the note should reach the end.
 - 0.9.23: Always pick up counts its sources (pink break-down tags) and recipe materials (ALWAYS).
-- 0.9.22: "Items without a rule". 0.9.21: Always Pick up / Recycle / Salvage. 0.9.19/0.9.20: break-down for all
-  reserves, priority order, source tags, partial-stack VALUE.
+- 0.9.22: "Items without a rule". 0.9.21: Always Pick up / Recycle / Salvage.
 - If something is wrong, press F8 while it is on screen and send the files from the "captures" folder together
   with the log file.
 
@@ -70,9 +70,9 @@ Owned items
 - ArcScan adds up how many of each item you own: stash plus backpack, quick use and safe pocket.
 - The item list in the console window shows the total as "own n" after the count.
 - The stash must be sorted by NAME (the sort button above the stash list). Other sort orders give
-  wrong totals or none; ArcScan ignores a stash view with several items out of name order. A single item out
-  of order (a misread slot, or an item the game sorts under another name, e.g. Amplified weapons) is counted
-  as a seen slot but not as that item.
+  wrong totals or none; ArcScan ignores a stash view with several items out of name order. A slot read as an
+  item that does not fit between its neighbours is read again with its close alternatives (e.g. a Ferro IV
+  that looked like an Amplified Osprey); if none fits, it counts as a seen slot but not as any item.
 - Totals are collected while you look at the stash. ArcScan knows from the scrollbar where each view is in the
   list, so an item is counted once all of its stacks have been seen, also across several views. Scroll through
   the stash once after starting ArcScan; stop for a moment now and then (only a still screen is read).
