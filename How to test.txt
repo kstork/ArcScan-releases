@@ -1,4 +1,4 @@
-ArcScan 0.9.18 - loot marking overlay (test build)
+ArcScan 0.9.19 - loot marking overlay (test build)
 
 What it does
 - Detects an open container, your stash or your inventory in a raid in ARC Raiders on GeForce NOW, without a key press.
@@ -14,13 +14,18 @@ What it does
   - In your stash, backpack and quick use, a reserved item you own enough of shows "ok" (e.g. QUEST ok) on the
     stacks you need: the biggest stacks are kept whole until the reserve is covered. In containers it is no
     longer marked for the reserve once you own enough.
-  - Blue RECYCLE n / SALVAGE n / HOME n: in your stash, backpack and quick use, owned items that ArcScan counts
-    as material for a stock item: how many to break down. At base RECYCLE n. In a raid SALVAGE n (break them
-    down now to free space) or HOME n (carry them home: recycling there gives more of an important material).
-    Your own "Keep in stock" amount of that item is never counted as material.
-    This advice only appears once everything for the stock item is there: owned material plus what your owned
-    items break down into covers all of it (for a crafted item: every recipe material). Until then those items
-    show STOCK n (collect more) or STOCK ok (keep them, do not break them down yet).
+  - Blue RECYCLE n / SALVAGE n / HOME n: break-down advice for materials that the next workshop level, your
+    quests, projects or "Keep in stock" still need (items that break down into them, and the recipe materials of
+    crafted items). In your stash RECYCLE n; in a raid SALVAGE n (break them down now) or HOME n (carry them home:
+    recycling there gives more of an important material).
+    - Your own items: only what no reserve of the item itself needs (quests, projects, workshop, keep in stock)
+      is broken down, right away, also while other materials are still missing. The smallest stacks are broken
+      down first (frees whole slots), the biggest stay ("<reason> ok").
+    - Loot in a container: when your stash alone (not what you carry in the raid) already covers the item's own
+      reserves, it shows SALVAGE n / HOME n: take n of it to break down. Otherwise its reserve marking is shown.
+    - Field SALVAGE: loot that is not worth taking as it is (grey), but salvaging it in the raid gives a material
+      that is still missing, shows SALVAGE n (take it and salvage it there). Not in the stash.
+    - Items on "Always pick up" are never broken down.
   - Pink ALWAYS: on your "Always pick up" list. While a reserve for the item is still open, the reserve marking
     with its number is shown instead; once you own enough, ALWAYS is shown everywhere (also in your stash), until
     your supply drops below the reserve again.
@@ -37,14 +42,13 @@ What it does
 - The overlay is click-through and never takes focus; the game keeps all mouse and keyboard input.
 
 What to check in this version
-- New stash check by list position (see "Owned items"): scroll through the stash once (All tab, sorted by name,
-  pause briefly every few rows). The note should count down and disappear at the end; the orange lines next to
-  the scrollbar show the rows still missing.
-- Move a few items between backpack and stash, then scroll: the note should ask only for the part of the list
-  from the first moved item (by name) on, not for everything.
-- Category tabs: open one (e.g. materials) and scroll through it: the note counts that tab ("tab slots").
-- If the note points the wrong way or the lines sit in the wrong place, press F8 there and send the captures
-  with the log (lines "STASH VIEW ..." show where ArcScan thinks the view is).
+- Break-down advice now works for workshop levels, quests and projects too, not only "Keep in stock". Expect more
+  blue markings, in containers and on your own slots.
+- Your own items beyond what they are kept for show RECYCLE n right away (stash), smallest stacks first.
+- Containers: items your stash already covers show SALVAGE n / HOME n; grey loot that salvages into a missing
+  material shows SALVAGE n. If that marks too much, the Rules tab limits the sources (best N, minimum yield,
+  value check); the rarity selector moves common materials from HOME to SALVAGE.
+- The F9 "What I need" list shows the new sources with their reasons (e.g. "source of Metal Parts ... for ...").
 - If something is wrong, press F8 while it is on screen and send the files from the "captures" folder together
   with the log file.
 
@@ -97,7 +101,7 @@ Settings (F9)
   the counted projects with their completed phases. Fully upgraded stations and finished or ended projects are
   hidden ("show"). The Research Station's levels come from game guides until the ARC Data Project has them.
 - Tab "Rules":
-  - Sources for stock items, combinable: no weapons, modifications, augments, shields or quick-use items (on by
+  - Sources (for workshop, quests, projects and stock items), combinable: no weapons, modifications, augments, shields or quick-use items (on by
     default); only sources that sell for less than the material they give; a minimum yield; only the best N
     sources per material by yield (on, N = 5; applied last).
   - Carry home or salvage: a source goes HOME when recycling gives more of a material you still need (from the
