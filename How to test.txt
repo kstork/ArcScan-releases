@@ -1,4 +1,4 @@
-ArcScan 0.9.21 - loot marking overlay (test build)
+ArcScan 0.9.22 - loot marking overlay (test build)
 
 What it does
 - Detects an open container, your stash or your inventory in a raid in ARC Raiders on GeForce NOW, without a key press.
@@ -51,11 +51,11 @@ What it does
 - The overlay is click-through and never takes focus; the game keeps all mouse and keyboard input.
 
 What to check in this version
-- Settings (F9), first tab: "Always" now has Pick up / Recycle / Salvage per item, grouped by stash tab. The item
-  search offers the same three plus Keep in stock; an item moves when it is added to another list.
-- Violet markings for your Always recycle / salvage items: stash RECYCLE n (smallest stacks first), raid
-  SALVAGE n or HOME n, containers with the stack's count.
-- 0.9.20 and 0.9.19 still apply (priority order, source tags, partial-stack VALUE, break-down for all reserves).
+- Settings (F9), first tab, bottom: "Items without a rule". Starts with the items you own or have seen since this
+  version (it fills up while you play); "all" shows every item. Give a few items a rule and check the markings.
+- 0.9.21: Always Pick up / Recycle / Salvage (violet markings), one list per item.
+- 0.9.20 and 0.9.19: priority order (later workshop levels before other quests), source tags, partial-stack
+  VALUE, break-down for all reserves, surplus broken down at once (smallest stacks first), field SALVAGE.
 - If something is wrong, press F8 while it is on screen and send the files from the "captures" folder together
   with the log file.
 
@@ -104,6 +104,11 @@ Settings (F9)
     break down into those. Nothing deeper, and nothing more once you have enough.
   - Always: one list for Pick up, Recycle and Salvage, grouped by stash tab; switch an item with one click,
     x removes it.
+  - Items without a rule (bottom of the first tab): every item that no open quest, project, workshop level, stock
+    item or Always rule uses, grouped by stash tab. By default the items you own or ArcScan has seen (seen.json
+    next to ArcScan.exe), "all" shows every item. "If no rule" says what happens now: VALUE (sell) or grey
+    (leave), by your sell value. One click gives an item a rule (Keep in stock, Pick up, Recycle, Salvage);
+    "details" shows owned, stash slots, stack size, value per kg and what it breaks into.
 - Tab "What I need": everything kept, what you own and what you still need (filter: still needed, all, sources
   and materials). Same numbers as the markings; updates every few seconds.
 - Tab "Workshop & projects": each station's current level (higher levels are kept; the next level first) and
