@@ -1,4 +1,4 @@
-ArcScan 0.9.20 - loot marking overlay (test build)
+ArcScan 0.9.21 - loot marking overlay (test build)
 
 What it does
 - Detects an open container, your stash or your inventory in a raid in ARC Raiders on GeForce NOW, without a key press.
@@ -33,6 +33,11 @@ What it does
   - Pink ALWAYS: on your "Always pick up" list. While a reserve for the item is still open, the reserve marking
     with its number is shown instead; once you own enough, ALWAYS is shown everywhere (also in your stash), until
     your supply drops below the reserve again.
+  - Violet RECYCLE n / SALVAGE n / HOME n: on your "Always recycle" or "Always salvage" list (after the reserves
+    and Keep in stock, before Always pick up). Everything beyond what quests, workshop, projects and stock keep is
+    broken down: in your stash RECYCLE n (smallest stacks first, kept stacks stay "<reason> ok"); in a raid
+    SALVAGE n (salvage list) or HOME n (recycle list: carry it home); loot shows the stack's count to take.
+    Blue is ArcScan's own break-down advice for your needs, violet is your rule.
   - Gold VALUE: not needed, but its sell value per kg is at or above your threshold.
   - In your stash, backpack and quick use, the stacks beyond what you need show VALUE n: this stack (n items)
     can be sold. Surplus stacks not worth their weight get the grey frame. The number is only shown once
@@ -46,13 +51,11 @@ What it does
 - The overlay is click-through and never takes focus; the game keeps all mouse and keyboard input.
 
 What to check in this version
-- Priority order: later workshop levels now come right after active quests, before other quests.
-- Items that break down into a quest, project or workshop material show that tag (QUEST n, PROJ n, BENCH n)
-  instead of STOCK n.
-- Stacks: when all stacks of an item are needed except part of one, that stack shows VALUE n (the units beyond).
-- 0.9.19 still applies: break-down for workshop, quests and projects; surplus broken down at once, smallest
-  stacks first; SALVAGE n / HOME n on loot your stash already covers; SALVAGE n on grey loot that salvages
-  into a missing material.
+- Settings (F9), first tab: "Always" now has Pick up / Recycle / Salvage per item, grouped by stash tab. The item
+  search offers the same three plus Keep in stock; an item moves when it is added to another list.
+- Violet markings for your Always recycle / salvage items: stash RECYCLE n (smallest stacks first), raid
+  SALVAGE n or HOME n, containers with the stack's count.
+- 0.9.20 and 0.9.19 still apply (priority order, source tags, partial-stack VALUE, break-down for all reserves).
 - If something is wrong, press F8 while it is on screen and send the files from the "captures" folder together
   with the log file.
 
@@ -92,13 +95,15 @@ Settings (F9)
     Active (cyan, they come first) and finished ones to Done (their items are released). Filters: Active + open,
     Active, Open, Done; the search also finds quests by the items they need. "Set all shown quests to" applies
     Open or Done to every quest in the current list.
-  - Add an item: one search; each result can be added to Keep in stock or Always pick up.
+  - Add an item: one search; each result can be added to Keep in stock or Always (Pick up / Recycle / Salvage).
+    An item is on one list only: adding it to another list moves it.
   - Keep in stock: how many of an item you always want, on top of quests, workshop and projects (reserve 50 +
     stock 30 = keep 80). The list is the priority: the top item gets the materials you own first. Drag the
     handle or use the arrows. While you are short of a stock item, items that break down into it are marked
     too (owned ones count first, at their yield); for a craftable one its recipe materials and the items that
     break down into those. Nothing deeper, and nothing more once you have enough.
-  - Always pick up: items that are always marked, without an amount.
+  - Always: one list for Pick up, Recycle and Salvage, grouped by stash tab; switch an item with one click,
+    x removes it.
 - Tab "What I need": everything kept, what you own and what you still need (filter: still needed, all, sources
   and materials). Same numbers as the markings; updates every few seconds.
 - Tab "Workshop & projects": each station's current level (higher levels are kept; the next level first) and
