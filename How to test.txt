@@ -1,4 +1,4 @@
-ArcScan 0.9.22 - loot marking overlay (test build)
+ArcScan 0.9.23 - loot marking overlay (test build)
 
 What it does
 - Detects an open container, your stash or your inventory in a raid in ARC Raiders on GeForce NOW, without a key press.
@@ -30,6 +30,12 @@ What it does
     - Field SALVAGE: loot that is not worth taking as it is (grey), but salvaging it in the raid gives a material
       that is still missing, shows SALVAGE n (take it and salvage it there). Not in the stash.
     - Items on "Always pick up" are never broken down.
+    - Always pick up also counts what breaks down into the item and, for a crafted item, its recipe materials
+      and what breaks down into those (same source rules as for stock). These are PINK, like the Always rule
+      they serve: loot that breaks down into it shows pink SALVAGE n / HOME n (n = the stack), owned ones pink
+      RECYCLE n for everything beyond what quests, workshop, projects and Keep in stock keep (no amount, so no
+      limit); its recipe materials are marked ALWAYS. Colour = why (blue your needs, violet your Always
+      recycle / salvage, pink your Always pick up), tag = what to do.
   - Pink ALWAYS: on your "Always pick up" list. While a reserve for the item is still open, the reserve marking
     with its number is shown instead; once you own enough, ALWAYS is shown everywhere (also in your stash), until
     your supply drops below the reserve again.
@@ -51,11 +57,12 @@ What it does
 - The overlay is click-through and never takes focus; the game keeps all mouse and keyboard input.
 
 What to check in this version
-- Settings (F9), first tab, bottom: "Items without a rule". Starts with the items you own or have seen since this
-  version (it fills up while you play); "all" shows every item. Give a few items a rule and check the markings.
-- 0.9.21: Always Pick up / Recycle / Salvage (violet markings), one list per item.
-- 0.9.20 and 0.9.19: priority order (later workshop levels before other quests), source tags, partial-stack
-  VALUE, break-down for all reserves, surplus broken down at once (smallest stacks first), field SALVAGE.
+- Always pick up now includes what breaks down into the item (and, for a crafted item, its recipe materials and
+  their sources): pink break-down tags (loot SALVAGE n / HOME n, your own copies RECYCLE n beyond every reserve
+  and stock amount), recipe materials ALWAYS. Items on your Always recycle / salvage list stay violet.
+- 0.9.22: "Items without a rule" (settings, first tab, bottom). 0.9.21: Always Pick up / Recycle / Salvage.
+- 0.9.20 and 0.9.19: priority order, source tags, partial-stack VALUE, break-down for all reserves, surplus broken
+  down at once (smallest stacks first), field SALVAGE.
 - If something is wrong, press F8 while it is on screen and send the files from the "captures" folder together
   with the log file.
 
