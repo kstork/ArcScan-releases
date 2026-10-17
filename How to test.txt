@@ -1,4 +1,4 @@
-ArcScan 0.9.25 - loot marking overlay (test build)
+ArcScan 0.9.26 - loot marking overlay (test build)
 
 What it does
 - Detects an open container, your stash or your inventory in a raid in ARC Raiders on GeForce NOW, without a key press.
@@ -25,6 +25,8 @@ What it does
     - Your own items: only what no reserve of the item itself needs (quests, projects, workshop, keep in stock)
       is broken down, right away, also while other materials are still missing. The smallest stacks are broken
       down first (frees whole slots), the biggest stay ("<reason> ok").
+    - A source that is still wanted in larger numbers: in your stash its own reserve is kept ("<reason> ok")
+      and the rest shows RECYCLE n; the loot marking says how many more to take.
     - Loot in a container: when your stash alone (not what you carry in the raid) already covers the item's own
       reserves, it shows SALVAGE n / HOME n: take n of it to break down. Otherwise its reserve marking is shown.
     - Field SALVAGE: loot that is not worth taking as it is (grey), but salvaging it in the raid gives a material
@@ -57,7 +59,14 @@ What it does
 - The overlay is click-through and never takes focus; the game keeps all mouse and keyboard input.
 
 What to check in this version
-- Tier IV weapons (e.g. Ferro IV, Stitcher IV) are read as IV, no longer as III or as another weapon. In your stash
+- Hovering over stash items (tooltips) no longer asks you to scroll through the whole stash again. A slot read
+  as another item while the slot count in the header stays the same keeps what was seen there; a new stack
+  count is taken. A tooltip over the scrollbar no longer puts the view at a wrong place in the list (log:
+  "STASH VIEW not used: scrollbar covered").
+- After crafting, selling or another screen, a changed slot still means the list changed from that item on.
+- Break-down sources are marked the same way at home and in a raid: in your stash blue RECYCLE n (break down
+  what you own now) where loot shows HOME n / SALVAGE n (take more), instead of BENCH n / STOCK n at home.
+- 0.9.25: Tier IV weapons (e.g. Ferro IV, Stitcher IV) are read as IV, no longer as III or as another weapon. In your stash
   sorted by name, a slot that does not fit between its neighbours is read as the close alternative that fits
   (log: "ORDER slot ... read as ...").
 - 0.9.24: one odd slot no longer stops the stash check; scroll through once and the note should reach the end.
@@ -88,6 +97,9 @@ Owned items
   "scroll ↑", "scroll ↑ and ↓"), and short orange lines right of the scrollbar show where those rows are.
   "in view: ? or cursor" means the missing slots are on screen but covered (cursor, popup) or unreadable.
   The note waits about 1.5 seconds after a change.
+- A slot that suddenly reads as another item (a tooltip over it) while the header count stays the same keeps what
+  was seen there; nothing else has to be looked at again. A new stack count is taken. After another screen
+  (crafting, selling, a raid) a changed slot means the list changed from that item on.
 - When you move items between backpack and stash, only the part of the list from that item on (by name) has to
   be looked at again. Several moves in a row: scroll once from the first moved item (by name) to the end.
 - The stash size is read again in every run. Until the header has been read (or when it cannot be read), there
