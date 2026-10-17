@@ -99,9 +99,10 @@ Settings (F9)
     An item is on one list only: adding it to another list moves it.
   - Keep in stock: how many of an item you always want, on top of quests, workshop and projects (reserve 50 +
     stock 30 = keep 80). The list is the priority: the top item gets the materials you own first. Drag the
-    handle or use the arrows. While you are short of a stock item, items that break down into it are marked
-    too (owned ones count first, at their yield); for a craftable one its recipe materials and the items that
-    break down into those. Nothing deeper, and nothing more once you have enough.
+    handle or use the arrows. While you are short of a stock item (or of anything quests, workshop or projects
+    keep), items that break down into it are marked too (owned ones count first, at their yield); for a
+    craftable one its recipe materials and the items that break down into those. Nothing deeper, and nothing
+    more once you have enough.
   - Always: one list for Pick up, Recycle and Salvage, grouped by stash tab; switch an item with one click,
     x removes it.
   - Items without a rule (bottom of the first tab): every item that no open quest, project, workshop level, stock
@@ -127,11 +128,15 @@ Settings (F9)
 Data sources
 - Items, icons and quests: MetaForge (metaforge.app/arc-raiders).
 - Projects and workshop levels: ARC Data Project, MIT licence (github.com/RaidTheory/arcraiders-data), the data behind arctracker.io.
+  Not there yet, so built into ArcScan from game guides: the Research Station levels and the Sheltered Retreat
+  (Outpost) project; compare them with the game.
+- Some quests name their items only in the task text (e.g. "Use 1 ARC Alloy ..."); ArcScan reads those amounts.
 - Recipes and recycling/salvage yields: MetaForge and the ARC Data Project; where they differ, both are used
   (every material either lists; recipe amounts at the higher, yields at the lower value).
 - Items added with Frozen Trail (October 2026) have no recipes in either source yet, so they cannot be planned
   for crafting; this fills in when the sources are updated.
-- All of it is cached in %LOCALAPPDATA%\ArcScan and refreshed once per day. A project that is not in the ARC Data Project yet does not appear; add its items under Keep in stock.
+- All of it is cached in %LOCALAPPDATA%\ArcScan and refreshed once per day. A project that is in neither the ARC
+  Data Project nor ArcScan yet does not appear; add its items under Keep in stock.
 
 Updates
 - At every start ArcScan checks github.com/kstork/ArcScan-releases for a newer version (file latest.json).
