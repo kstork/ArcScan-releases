@@ -1,4 +1,4 @@
-ArcScan 0.9.26 - loot marking overlay (test build)
+ArcScan 0.9.27 - loot marking overlay (test build)
 
 What it does
 - Detects an open container, your stash or your inventory in a raid in ARC Raiders on GeForce NOW, without a key press.
@@ -59,7 +59,17 @@ What it does
 - The overlay is click-through and never takes focus; the game keeps all mouse and keyboard input.
 
 What to check in this version
-- Hovering over stash items (tooltips) no longer asks you to scroll through the whole stash again. A slot read
+- Moving an item between backpack and stash, also when its place in the stash is out of view: no new scroll
+  is needed (the list is shifted at that item's place; log "STASH <item>: ... list shifted at its place").
+- Selling (or another change you do not see): ArcScan keeps the old list as a guide. Look at any part of the
+  stash: if it matches the old list, everything above it (or below it) is known again, so only the part where
+  the change happened has to be scrolled to.
+- Weapons with a tier numeral (I-IV) are no longer read as items without tiers (Amplified weapons, grenades).
+  When two weapons look too much alike outside the stash, the slot shows "?"; in the stash sorted by name the
+  one that fits between its neighbours is taken (e.g. Arpeggio IV). Such a slot no longer flickers when the
+  cursor moves.
+- Category tabs: the scrollbar check follows the tab's item count (it rejected views after items were added).
+- 0.9.26: Hovering over stash items (tooltips) no longer asks you to scroll through the whole stash again. A slot read
   as another item while the slot count in the header stays the same keeps what was seen there; a new stack
   count is taken. A tooltip over the scrollbar no longer puts the view at a wrong place in the list (log:
   "STASH VIEW not used: scrollbar covered").
@@ -100,8 +110,12 @@ Owned items
 - A slot that suddenly reads as another item (a tooltip over it) while the header count stays the same keeps what
   was seen there; nothing else has to be looked at again. A new stack count is taken. After another screen
   (crafting, selling, a raid) a changed slot means the list changed from that item on.
-- When you move items between backpack and stash, only the part of the list from that item on (by name) has to
-  be looked at again. Several moves in a row: scroll once from the first moved item (by name) to the end.
+- When you move items between backpack and stash, ArcScan shifts its list at that item's place when it has seen
+  that place; nothing has to be looked at again. Otherwise only the part of the list from that item on (by
+  name) has to be looked at again.
+- When the stash changed without a move from the backpack (sold, crafted), every part of the list counts as
+  not seen, but the old list is kept: a view that matches it shows whether the change is above or below, and
+  the other side counts as seen again.
 - The stash size is read again in every run. Until the header has been read (or when it cannot be read), there
   is no note and VALUE shows no number; the console says "stash size not read yet".
 - A change to the backpack, quick use or safe pocket counts once two looks in a row agree (an item dropping into
