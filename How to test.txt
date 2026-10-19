@@ -1,4 +1,4 @@
-ArcScan 0.9.27 - loot marking overlay (test build)
+ArcScan 0.9.28 - loot marking overlay (test build)
 
 What it does
 - Detects an open container, your stash or your inventory in a raid in ARC Raiders on GeForce NOW, without a key press.
@@ -36,7 +36,8 @@ What it does
       and what breaks down into those (same source rules as for stock). These are PINK, like the Always rule
       they serve: loot that breaks down into it shows pink SALVAGE n / HOME n (n = the stack), owned ones pink
       RECYCLE n for everything beyond what quests, workshop, projects and Keep in stock keep (no amount, so no
-      limit); its recipe materials are marked ALWAYS. Colour = why (blue your needs, violet your Always
+      limit); its recipe materials are marked pink CRAFT (craft them into the Always item; they are not Always
+      items of their own). Colour = why (blue your needs, violet your Always
       recycle / salvage, pink your Always pick up), tag = what to do.
   - Pink ALWAYS: on your "Always pick up" list. While a reserve for the item is still open, the reserve marking
     with its number is shown instead; once you own enough, ALWAYS is shown everywhere (also in your stash), until
@@ -59,7 +60,9 @@ What it does
 - The overlay is click-through and never takes focus; the game keeps all mouse and keyboard input.
 
 What to check in this version
-- Moving an item between backpack and stash, also when its place in the stash is out of view: no new scroll
+- Recipe materials of an "Always pick up" item now show pink CRAFT instead of ALWAYS. An item that is on your
+  Always list itself still shows ALWAYS.
+- 0.9.27: Moving an item between backpack and stash, also when its place in the stash is out of view: no new scroll
   is needed (the list is shifted at that item's place; log "STASH <item>: ... list shifted at its place").
 - Selling (or another change you do not see): ArcScan keeps the old list as a guide. Look at any part of the
   stash: if it matches the old list, everything above it (or below it) is known again, so only the part where
@@ -80,7 +83,7 @@ What to check in this version
   sorted by name, a slot that does not fit between its neighbours is read as the close alternative that fits
   (log: "ORDER slot ... read as ...").
 - 0.9.24: one odd slot no longer stops the stash check; scroll through once and the note should reach the end.
-- 0.9.23: Always pick up counts its sources (pink break-down tags) and recipe materials (ALWAYS).
+- 0.9.23: Always pick up counts its sources (pink break-down tags) and recipe materials (CRAFT since 0.9.28).
 - 0.9.22: "Items without a rule". 0.9.21: Always Pick up / Recycle / Salvage.
 - If something is wrong, press F8 while it is on screen and send the files from the "captures" folder together
   with the log file.
